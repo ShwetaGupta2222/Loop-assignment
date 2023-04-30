@@ -1,0 +1,300 @@
+@mixin tablet {
+    @media screen and (max-width:820px) {
+        @content;
+    }
+}
+
+body {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+
+.formContainer {
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 40px 60px;
+        gap: 8px;
+        align-items: center;
+        border-radius: 10px;
+
+        .logo {
+            color: #045de9;
+            font-weight: bold;
+            font-size: 24px;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        .title {
+            color: rgb(95, 94, 94);
+            font-size: 12px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 270px;
+
+            input {
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid #4889f3;
+                width: 250px;
+
+                &::placeholder {
+                    color: rgb(175, 175, 175);
+                }
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: #8da4f1;
+                font-size: 12px;
+                cursor: pointer;
+
+                img {
+                    height: 32px;
+                    margin-top: 8px;
+                }
+
+                span {
+                    font-weight: 500;
+                }
+
+            }
+
+            button {
+                background-color: #045de9;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        p {
+            color: #5d5b8d;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.Searchbar {
+    .nav {
+        display: flex;
+        width: 100%;
+        height: 90px;
+        padding: 10px 30px;
+        box-sizing: border-box;
+        gap: 70px;
+        align-items: center;
+        background: rgb(255, 255, 255, 0.4);
+
+        .logo {
+            padding: 6px;
+            background-image: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255, 0.4), rgb(255, 255, 255, 0), rgb(255, 255, 255, 0), rgb(255, 255, 255, 0));
+            position: relative;
+            border-radius: 50%;
+            top: 35px;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        input {
+            width: 70%;
+            height: 50px;
+            padding: 10px 30px;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            transition: 0.15s all;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            color: rgb(53, 53, 53);
+
+            &:hover {
+                border: none;
+                font-size: 18px;
+                padding: 10px 31px;
+                border-radius:15px;
+            }
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #045de9;
+            border-radius: 20px;
+            font-size: 17px;
+            color: rgb(210, 208, 208);
+            border: none;
+            box-shadow: 0px 0px 5px rgb(58, 57, 57);
+            margin-left: -20px;
+
+            &::before {
+                content: "";
+                box-shadow: 0px 0px 5px inset rgb(74, 73, 73);
+            }
+
+            &:active {
+                color: white;
+            }
+
+        }
+        .logout{
+            margin-left:-50px;
+            background: rgb(57, 56, 56);
+        }
+    }
+
+    .restraurants-list {
+        display: flex;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        justify-content: center;
+        
+        .container {
+            width: 60%;
+            max-height: 200px;
+            overflow-y: scroll;
+            background: white;
+            button {
+                width: 100%;
+                height: 40px;
+                font-size: 18px;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                text-align: start;
+                border: none;
+                color: rgb(116, 115, 115);
+
+                &:hover {
+                    background: rgb(0, 0, 0, 0.5);
+                    background: rgb(255, 255, 255, 0.5);
+                    color: white;
+                    color: rgb(42, 42, 42);
+                }
+            }
+        }
+    }
+}
+
+.Map {
+    width: 100%;
+    height: 650px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    animation: show 1s linear 1;
+    position: absolute;
+    z-index: 10;
+    .map {
+        width: 70%;
+        overflow: hidden;
+        border: 20px solid white;
+        border-radius: 25px;
+
+        iframe {
+            margin-top: -75px;
+        }
+    }
+}
+
+.Feed {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .background{
+        width:100%;
+        margin-bottom: 20px;
+        img{
+        width:100%;
+        height:300px;
+        object-fit: cover;
+        box-shadow:0 0 10px black; 
+        }
+    }
+    .feed {
+        width: 70%;
+        padding-bottom:50px;
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom:30px;
+            button {
+                padding: 10px 20px;
+                height: 50px;
+                border: none;
+                box-sizing: border-box;
+                background: transparent;
+                font-size: 18px;
+                color: white;
+            }
+
+            .border {
+                border-bottom: 5px solid #045de9;
+            }
+        }
+    }
+}
+
+.restaurant {
+    background: white;
+    margin:10px;
+    border-radius: 10px;
+    .container {
+        padding:5px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color:rgb(101, 101, 101);
+        }
+        .buttons{
+            height:100%;
+            margin:0;
+            gap:15px;
+        }
+    }
+    .Map{
+        height:600px;
+        position: inherit;
+        .map{
+            width:100%;
+        }
+    }
+}
+
+@keyframes show {
+    from{ height:0px;}
+    to{ height:650px;}
+    
+}
